@@ -15,7 +15,7 @@ html {
    --fourth-color: #ce9461;
    --background-color: #fafafa;
 
-   --title-font: 1.5rem;
+   --title-font: 1.8rem;
    --subtitle-font: 1.2rem;
    --tiny-font: 0.9rem;
 
@@ -30,6 +30,10 @@ main {
    flex-direction: column;
    gap: 20px;
    background-color: var(--background-color);
+}
+.title {
+   font-size: var(--title-font);
+   font-weight: var(--title-weight);
 }
 /* HELPERS */
 
@@ -65,6 +69,7 @@ main {
 .areas {
    display: flex;
    gap: 10px;
+   padding: 10px 0;
    overflow-y: hidden;
    overflow-x: auto;
    white-space: nowrap;
@@ -81,3 +86,27 @@ main {
    font-size: var(--subtitle-font);
 }
 /* AREAS */
+
+/* FOOD AREA */
+.area-food--list {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   flex-wrap: wrap;
+}
+.card {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   width: 45%;
+}
+.card--img {
+   border-radius: 15px;
+   width: 100%;
+   filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.25));
+}
+.card--info .info--title {
+   font-weight: var(--title-weight);
+   font-size: 1.1rem;
+}
+/* FOOD AREA */
