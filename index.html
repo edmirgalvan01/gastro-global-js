@@ -16,13 +16,14 @@
 
 <body>
     <main>
-        <section class="welcome">
+        <!-- HOME -->
+        <section class="welcome hidden">
             <h1 class="welcome--title title">
                 Las mejores comidas del mundo <span class="welcome--title__color">en un solo lugar</span>
             </h1>
             <input class="welcome--input" type="text" placeholder="Encuentra lo que buscas">
         </section>
-        <section class="areas">
+        <section class="areas hidden">
             <button class="areas--area">
                 <p>Mexican</p>
             </button>
@@ -48,7 +49,7 @@
                 <p>Mexican</p>
             </button>
         </section>
-        <section class="area-food">
+        <section class="area-food hidden">
             <h1 class="area-food--title title">Comida mexicana</h1>
             <div class="area-food--list">
                 <div class="card">
@@ -95,6 +96,51 @@
                 </div>
             </div>
         </section>
+        <!-- HOME -->
+
+        <!-- FOOD DETAILS -->
+        <div class="header">
+            <a href="#" class="header--back">
+                <img src="./assets/back.svg" alt="">
+            </a>
+        </div>
+        <div class="food">
+            <img src="./assets/ustsqw1468250014.jpg" alt="" class="food--img">
+            <div class="food--info">
+                <h1 class="info--title title">Cajun spiced fish tacos</h1>
+                <div class="info--ingredients">
+                    <ul class="ingredients--list">
+                        <h2>Ingredientes</h2>
+                        <p>Cajun</p>
+                        <p>Cayenne pepper</p>
+                        <p>White fish</p>
+                        <p>Vegetable oil</p>
+                    </ul>
+                    <ul class="ingredients--list">
+                        <h2>Medidas</h2>
+                        <p>2 tbsp</p>
+                        <p>1 tsp</p>
+                        <p>4 fillets</p>
+                        <p>1 tsp</p>
+                        <p>1 x 300ml</p>
+                    </ul>
+                </div>
+                <div class="info--instructions">
+                    <h2 class="instructions--title">Instrucciones</h2>
+                    <p class="instructions--content">Cooking in a cajun spice and cayenne pepper marinade makes this
+                        fish super succulent and flavoursome. Top with a zesty dressing and serve in a tortilla for a
+                        quick, fuss-free main that's delightfully summery. On a large plate, mix the cajun spice and
+                        cayenne pepper with a little seasoning and use to coat the fish all over. Heat a little oil in a
+                        frying pan, add in the fish and cook over a medium heat until golden. Reduce the heat and
+                        continue frying until the fish is cooked through, about 10 minutes. Cook in batches if you don’t
+                        have enough room in the pan. Meanwhile, prepare the dressing by combining all the ingredients
+                        with a little seasoning. Soften the tortillas by heating in the microwave for 5-10 seconds. Pile
+                        high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes
+                        of fish and drizzle over the dressing.</p>
+                </div>
+            </div>
+        </div>
+        <!-- FOOD DETAILS -->
     </main>
     <footer class="footer">
         <p class="footer--title title">Hecha por Edmir Galvan</p>

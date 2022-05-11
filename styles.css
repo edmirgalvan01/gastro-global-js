@@ -35,7 +35,12 @@ main {
    font-size: var(--title-font);
    font-weight: var(--title-weight);
 }
+.hidden {
+   display: none !important;
+}
 /* HELPERS */
+
+/* HOME */
 
 /* WELCOME */
 .welcome {
@@ -126,3 +131,45 @@ main {
    gap: 10px;
 }
 /* FOOTER */
+
+/* HOME */
+
+/* FOOD DETAILS */
+.food {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+}
+.food--img {
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+   filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.4));
+   border-radius: 30px;
+}
+.food--info {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.info--title {
+   color: var(--third-color);
+}
+.info--ingredients {
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+}
+.ingredients--list {
+   width: 50%;
+}
+.info--instructions {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.instructions--content {
+   line-height: 123%;
+}
+/* FOOD DETAILS */
