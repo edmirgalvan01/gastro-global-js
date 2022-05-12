@@ -18,6 +18,10 @@ async function getAreas() {
 
       button.appendChild(p);
       areasContainer.appendChild(button);
+
+      button.addEventListener('click', () => {
+         getMealByArea(area.strArea);
+      });
    });
 }
 
@@ -26,13 +30,8 @@ async function getMealByArea(area) {
    const data = await response.json();
    const meals = data.meals;
 
-   areaFoodContainer.innerHtml = '';
-
-   const foodTitle = document.createElement('h1');
    foodTitle.innerText = `${area} food`;
-   foodTitle.classList = 'area-food--title';
-   foodTitle.classList = 'title';
-   areaFoodContainer.appendChild(foodTitle);
+   areaFoodList.innerHTML = '';
 
    meals.map((meal) => {
       const card = document.createElement('div');
