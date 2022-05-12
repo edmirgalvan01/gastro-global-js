@@ -12,6 +12,7 @@ const areasCard = $('.areas--area');
 // AREA FOOD
 const areaFoodContainer = $('.area-food');
 const areaFoodList = $('.area-food--list');
+const foodTitle = $('.area-food--title');
 const card = $('.card');
 const cardInfo = $('.card--info');
 // AREA FOOD
