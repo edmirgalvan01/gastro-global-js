@@ -42,6 +42,10 @@ async function getMealByArea(area) {
       infoTitle.innerHTML = meal.strMeal;
       cardImg.setAttribute('src', meal.strMealThumb);
 
+      card.addEventListener('click', () => {
+         location.hash = '#mealDetails';
+      });
+
       card.classList = 'card';
       cardImg.classList = 'card--img';
       cardInfo.classList = 'card--info';
