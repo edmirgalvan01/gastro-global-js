@@ -65,6 +65,42 @@ async function getMealDetails(id) {
    const response = await fetch(URL_MEAL_DETAILS_BY_ID(id));
    const data = await response.json();
    const meals = data.meals;
+
+   foodDetailsContainer.innerHTML = '';
+
+   const foodImg = document.createElement('img');
+   foodImg.setAttribute('src', meals[0].strMealThumb);
+   foodImg.classList.add('food--img');
+   foodDetailsContainer.appendChild(foodImg);
+
+   infoTitleFood.innerText = meals[0].strMeal;
+
+   const mealObject = meals[0];
+   const mealEntries = Object.entries(mealObject);
+   const ingredientsEntries = mealEntries.filter((entry) =>
+      entry[0].startsWith('strIngredient')
+   );
+   const ingredientsFill = ingredientsEntries.filter((entry) => entry[1]);
+   const ingredients = ingredientsFill.map((ingredient) => ingredient[1]);
+
+   const ingredientsList = document.createElement('ul');
+   ingredientsList.classList.add('ingredients--list');
+   ingredients.map((ingredient) => {
+      const listItem = document.createElement('li');
+      listItem.innerText = ingredient;
+      ingredientsList.appendChild(listItem);
+   });
+
+   const instructionsTitle = document.createElement('h2');
+   instructionsTitle.innerText = 'Instructions';
+   instructionsTitle.classList.add('instructions--title');
+   foodInstructionsContainer.appendChild(instructionsTitle);
+
+   const instructionsContent = document.createElement('p');
+   const instructions = meals[0].strInstructions;
+   instructionsContent.innerText = instructions;
+   instructionsContent.classList.add('instructions--content');
+   foodInstructionsContainer.appendChild(instructionsContent);
 }
 
 getMealByArea('Mexican');
