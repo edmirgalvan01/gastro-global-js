@@ -1,6 +1,8 @@
 const URL_AREAS = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
 const URL_MEALS_BY_AREA = (area) =>
    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`;
+const URL_MEAL_DETAILS_BY_ID = (id) =>
+   `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 
 async function getAreas() {
    const response = await fetch(URL_AREAS);
@@ -43,7 +45,8 @@ async function getMealByArea(area) {
       cardImg.setAttribute('src', meal.strMealThumb);
 
       card.addEventListener('click', () => {
-         location.hash = '#mealDetails';
+         location.hash = `#mealDetails=${meal.idMeal}`;
+         getMealDetails(meal.idMeal);
       });
 
       card.classList = 'card';
@@ -56,6 +59,12 @@ async function getMealByArea(area) {
       card.appendChild(cardInfo);
       areaFoodList.appendChild(card);
    });
+}
+
+async function getMealDetails(id) {
+   const response = await fetch(URL_MEAL_DETAILS_BY_ID(id));
+   const data = await response.json();
+   const meals = data.meals;
 }
 
 getMealByArea('Mexican');
