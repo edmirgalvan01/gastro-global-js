@@ -64,6 +64,7 @@ async function getMealByArea(area) {
 }
 
 async function getMealDetails(id) {
+   console.log('hola');
    const response = await fetch(URL_MEAL_DETAILS_BY_ID(id));
    const data = await response.json();
    const meals = data.meals;
@@ -144,5 +145,5 @@ buttonSearch.addEventListener('click', (e) => {
    inputSearch.value = '';
 });
 
-getMealByArea('Mexican');
+getMealByArea('American');
 getAreas();
