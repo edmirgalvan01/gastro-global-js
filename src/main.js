@@ -66,13 +66,9 @@ async function getMealDetails(id) {
    const data = await response.json();
    const meals = data.meals;
 
-   foodDetailsContainer.innerHTML = '';
+   // foodDetailsContainer.innerHTML = '';
 
-   const foodImg = document.createElement('img');
    foodImg.setAttribute('src', meals[0].strMealThumb);
-   foodImg.classList.add('food--img');
-   foodDetailsContainer.appendChild(foodImg);
-
    infoTitleFood.innerText = meals[0].strMeal;
 
    const mealObject = meals[0];
@@ -90,11 +86,7 @@ async function getMealDetails(id) {
       listItem.innerText = ingredient;
       ingredientsList.appendChild(listItem);
    });
-
-   const instructionsTitle = document.createElement('h2');
-   instructionsTitle.innerText = 'Instructions';
-   instructionsTitle.classList.add('instructions--title');
-   foodInstructionsContainer.appendChild(instructionsTitle);
+   foodIngredientsContainer.appendChild(ingredientsList);
 
    const instructionsContent = document.createElement('p');
    const instructions = meals[0].strInstructions;
