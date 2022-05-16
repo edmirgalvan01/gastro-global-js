@@ -79,6 +79,18 @@ main {
    overflow-x: auto;
    white-space: nowrap;
    width: 100%;
+   scrollbar-width: thin;
+}
+.areas::-webkit-scrollbar {
+   height: 7px;
+}
+.areas::-webkit-scrollbar-track {
+   background: none;
+}
+.areas::-webkit-scrollbar-thumb {
+   background-color: var(--third-color); /* color of the scroll thumb */
+   border-radius: 20px;
+   height: 5px;
 }
 .areas--area {
    padding: 10px 15px;
