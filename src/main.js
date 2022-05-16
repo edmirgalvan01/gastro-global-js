@@ -6,12 +6,8 @@ const URL_MEAL_DETAILS_BY_ID = (id) =>
 const URL_MEAL_BY_KEYWORDS = (keyword) =>
    `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`;
 
-async function getAreas() {
-   const response = await fetch(URL_AREAS);
-   const data = await response.json();
-   const areas = data.meals;
-
-   areasContainer.innerHTML = '';
+function createAreas(areas, container) {
+   container.innerHTML = '';
 
    areas.map((area) => {
       const button = document.createElement('button');
@@ -21,12 +17,55 @@ async function getAreas() {
       p.innerHTML = area.strArea;
 
       button.appendChild(p);
-      areasContainer.appendChild(button);
+      container.appendChild(button);
 
       button.addEventListener('click', () => {
          getMealByArea(area.strArea);
       });
    });
+}
+
+function createMeals(meals, container) {
+   container.innerHTML = '';
+
+   if (meals === null) {
+      const p = document.createElement('p');
+      p.innerText = 'Not found results';
+      container.appendChild(p);
+   } else {
+      meals.map((meal) => {
+         const card = document.createElement('div');
+         const cardImg = document.createElement('img');
+         const cardInfo = document.createElement('div');
+         const infoTitle = document.createElement('p');
+
+         infoTitle.innerHTML = meal.strMeal;
+         cardImg.setAttribute('src', meal.strMealThumb);
+
+         card.addEventListener('click', () => {
+            location.hash = `#mealDetails=${meal.idMeal}`;
+            getMealDetails(meal.idMeal);
+         });
+
+         card.classList = 'card';
+         cardImg.classList = 'card--img';
+         cardInfo.classList = 'card--info';
+         infoTitle.classList = 'info--title';
+
+         cardInfo.appendChild(infoTitle);
+         card.appendChild(cardImg);
+         card.appendChild(cardInfo);
+         container.appendChild(card);
+      });
+   }
+}
+
+async function getAreas() {
+   const response = await fetch(URL_AREAS);
+   const data = await response.json();
+   const areas = data.meals;
+
+   createAreas(areas, areasContainer);
 }
 
 async function getMealByArea(area) {
@@ -35,32 +74,7 @@ async function getMealByArea(area) {
    const meals = data.meals;
 
    foodTitle.innerText = `${area} food`;
-   areaFoodList.innerHTML = '';
-
-   meals.map((meal) => {
-      const card = document.createElement('div');
-      const cardImg = document.createElement('img');
-      const cardInfo = document.createElement('div');
-      const infoTitle = document.createElement('p');
-
-      infoTitle.innerHTML = meal.strMeal;
-      cardImg.setAttribute('src', meal.strMealThumb);
-
-      card.addEventListener('click', () => {
-         location.hash = `#mealDetails=${meal.idMeal}`;
-         getMealDetails(meal.idMeal);
-      });
-
-      card.classList = 'card';
-      cardImg.classList = 'card--img';
-      cardInfo.classList = 'card--info';
-      infoTitle.classList = 'info--title';
-
-      cardInfo.appendChild(infoTitle);
-      card.appendChild(cardImg);
-      card.appendChild(cardInfo);
-      areaFoodList.appendChild(card);
-   });
+   createMeals(meals, areaFoodList);
 }
 
 async function getMealDetails(id) {
@@ -98,38 +112,7 @@ async function getMealByKeyword(keyword) {
    const meals = data.meals;
 
    foodTitle.innerText = keyword;
-   areaFoodList.innerHTML = '';
-
-   if (meals === null) {
-      const p = document.createElement('p');
-      p.innerText = 'Not found results';
-      areaFoodList.appendChild(p);
-   } else {
-      meals.map((meal) => {
-         const card = document.createElement('div');
-         const cardImg = document.createElement('img');
-         const cardInfo = document.createElement('div');
-         const infoTitle = document.createElement('p');
-
-         infoTitle.innerHTML = meal.strMeal;
-         cardImg.setAttribute('src', meal.strMealThumb);
-
-         card.addEventListener('click', () => {
-            location.hash = `#mealDetails=${meal.idMeal}`;
-            getMealDetails(meal.idMeal);
-         });
-
-         card.classList = 'card';
-         cardImg.classList = 'card--img';
-         cardInfo.classList = 'card--info';
-         infoTitle.classList = 'info--title';
-
-         cardInfo.appendChild(infoTitle);
-         card.appendChild(cardImg);
-         card.appendChild(cardInfo);
-         areaFoodList.appendChild(card);
-      });
-   }
+   createMeals(meals, areaFoodList);
 }
 
 buttonSearch.addEventListener('click', (e) => {
