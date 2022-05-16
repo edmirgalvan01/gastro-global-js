@@ -2,6 +2,8 @@ const $ = (element) => document.querySelector(element);
 
 // WELCOME
 const welcomeContainer = $('.welcome');
+const inputSearch = $('.welcome--input');
+const buttonSearch = $('.welcome--button-search');
 // WELCOME
 
 // AREAS

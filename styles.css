@@ -52,8 +52,14 @@ main {
    color: var(--third-color);
    font-style: italic;
 }
-.welcome--input {
+.welcome-search {
+   display: flex;
+   gap: 10px;
    width: 100%;
+   justify-content: space-between;
+}
+.welcome--input {
+   width: 75%;
    height: 40px;
    background: url('./assets/search.svg') no-repeat scroll 7px 7px;
    padding-left: 40px;
@@ -62,6 +68,16 @@ main {
    border: 1px solid var(--third-color);
    display: flex;
    gap: 15px;
+}
+.welcome--button-search {
+   width: 25%;
+   max-width: 100px;
+   background-color: var(--third-color);
+   border: none;
+   border-radius: 8px;
+   color: var(--background-color);
+   font-weight: var(--title-weight);
+   cursor: pointer;
 }
 .welcome--input::placeholder {
    font-size: var(--tiny-font);
