@@ -68,7 +68,7 @@ async function getMealDetails(id) {
    const data = await response.json();
    const meals = data.meals;
 
-   // foodDetailsContainer.innerHTML = '';
+   foodDetailsContainer.innerHTML = '';
 
    foodImg.setAttribute('src', meals[0].strMealThumb);
    infoTitleFood.innerText = meals[0].strMeal;
