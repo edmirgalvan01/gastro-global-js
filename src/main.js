@@ -68,7 +68,8 @@ async function getMealDetails(id) {
    const data = await response.json();
    const meals = data.meals;
 
-   foodDetailsContainer.innerHTML = '';
+   instructionsContent.innerText = '';
+   ingredientsList.innerText = '';
 
    foodImg.setAttribute('src', meals[0].strMealThumb);
    infoTitleFood.innerText = meals[0].strMeal;
@@ -81,20 +82,14 @@ async function getMealDetails(id) {
    const ingredientsFill = ingredientsEntries.filter((entry) => entry[1]);
    const ingredients = ingredientsFill.map((ingredient) => ingredient[1]);
 
-   const ingredientsList = document.createElement('ul');
-   ingredientsList.classList.add('ingredients--list');
    ingredients.map((ingredient) => {
       const listItem = document.createElement('li');
       listItem.innerText = ingredient;
       ingredientsList.appendChild(listItem);
    });
-   foodIngredientsContainer.appendChild(ingredientsList);
 
-   const instructionsContent = document.createElement('p');
    const instructions = meals[0].strInstructions;
    instructionsContent.innerText = instructions;
-   instructionsContent.classList.add('instructions--content');
-   foodInstructionsContainer.appendChild(instructionsContent);
 }
 
 async function getMealByKeyword(keyword) {
@@ -144,5 +139,5 @@ buttonSearch.addEventListener('click', (e) => {
    inputSearch.value = '';
 });
 
-getMealByArea('Mexican');
+getMealByArea('American');
 getAreas();

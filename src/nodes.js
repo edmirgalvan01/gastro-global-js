@@ -27,5 +27,7 @@ const btnBack = $('.header--back');
 const foodDetailsInfoContainer = $('.food--info');
 const infoTitleFood = $('.info--title');
 const foodIngredientsContainer = $('.info--ingredients');
+const ingredientsList = $('.ingredients--list');
 const foodInstructionsContainer = $('.info--instructions');
+const instructionsContent = $('.instructions--content');
 // FOOD DETAILS
